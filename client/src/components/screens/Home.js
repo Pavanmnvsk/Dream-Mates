@@ -1,6 +1,8 @@
 import React,{useState,useEffect,useContext} from 'react'
 import {UserContext} from '../../App'
+import M from 'materialize-css'
 import {Link} from 'react-router-dom'
+//const moment = require('moment')
 const Home  = ()=>{
     const [data,setData] = useState([])
     const {state,dispatch} = useContext(UserContext)
@@ -112,11 +114,19 @@ const Home  = ()=>{
    return (
        <div className="home">
            {
+               
                data.map(item=>{
                    return(
-                       <div className="card home-card" key={item._id}>
                        
-                            <h5 style={{padding:"5px"}}><Link to={item.postedBy._id !== state._id?"/profile/"+item.postedBy._id :"/profile"  }>{item.postedBy.name}</Link> {item.postedBy._id == state._id 
+                       <div className="card home-card" key={item._id}>
+                       <div>
+                       <div style={{float: "left", padding: "10px"}}>
+                     <Link to={item.postedBy._id == state._id ? "/profile" : "/profile/"+item.postedBy._id} >
+                     <img src = {item.postedBy.pic} style={{width: "30px", height: "30px", borderRadius: "50%"}} />
+                     </Link>
+                   </div>
+                   <h5 style={{padding:"5px",fontWeight:500}}><Link to={item.postedBy._id !== state._id?"/profile/"+item.postedBy._id :"/profile"  }>{item.postedBy.name}</Link>
+                             {item.postedBy._id == state._id 
                             && <i className="material-icons" style={{
                                 float:"right"
                             }} 
@@ -124,6 +134,8 @@ const Home  = ()=>{
                             >delete</i>
 
                             }</h5>
+                 
+              </div>
                             <div className="card-image">
                                 <img src={item.photo}/>
                             </div>
@@ -131,13 +143,13 @@ const Home  = ()=>{
                             <i className="material-icons" style={{color:"red"}}>favorite</i>
                             {item.likes.includes(state._id)
                             ? 
-                             <i className="material-icons"
+                            <i className="material-icons" style={{color:"DodgerBlue"}}
                                     onClick={()=>{unlikePost(item._id)}}
-                              >thumb_down</i>
+                              >thumb_up</i>
                             : 
                             <i className="material-icons"
                             onClick={()=>{likePost(item._id)}}
-                            >thumb_up</i>
+                            >thumb_up_off_alt</i>
                             }
                             
                            
