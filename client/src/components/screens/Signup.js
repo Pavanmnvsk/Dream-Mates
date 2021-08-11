@@ -71,7 +71,7 @@ const SignIn  = ()=>{
    return (
       <div className="mycard">
           <div className="card auth-card input-field">
-          <img src="/dream.png" width="100px"></img>
+          <img src="/dream2.png" width="100px"></img>
 
             <h2>Dream Mates</h2>
             <input
@@ -93,7 +93,7 @@ const SignIn  = ()=>{
             onChange={(e)=>setPasword(e.target.value)}
             />
             <div className="file-field input-field">
-            <div className="btn #64b5f6 blue darken-1">
+            <div className="btn #64b5f6 black darken-1">
                 <span>Upload pic</span>
                 <input type="file" onChange={(e)=>setImage(e.target.files[0])} />
             </div>
@@ -101,13 +101,13 @@ const SignIn  = ()=>{
                 <input className="file-path validate" type="text" />
             </div>
             </div>
-            <button className="btn waves-effect waves-light #64b5f6 blue darken-1"
+            <button className="btn waves-effect waves-light #64b5f6 black darken-1"
             onClick={()=>PostData()}
             >
                 SignUP
             </button>
             <h5>
-                <Link to="/signin">Already have an account ?</Link>
+                <Link to="/signin" style={{color:'black'}}>Already have an account ?</Link>
             </h5>
              
                

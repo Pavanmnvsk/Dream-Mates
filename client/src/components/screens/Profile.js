@@ -76,19 +76,19 @@ const Profile  = ()=>{
                  
                </div>
                <div>
-                   <h4>{state?state.name:"loading"}</h4>
-                   <h5>{state?state.email:"loading"}</h5>
+                   <h4 style={{color:'white'}}>{state?state.name:"loading"}</h4>
+                   <h5 style={{color:'white'}}>{state?state.email:"loading"}</h5>
                    <div style={{display:"flex",justifyContent:"space-between",width:"108%"}}>
-                       <h6>{mypics.length} posts</h6>
-                       <h6>{state?state.followers.length:"0"} followers</h6>
-                       <h6>{state?state.following.length:"0"} following</h6>
+                       <h6 style={{color:'white'}}>{mypics.length} posts</h6>
+                       <h6 style={{color:'white'}}>{state?state.followers.length:"0"} followers</h6>
+                       <h6 style={{color:'white'}}>{state?state.following.length:"0"} following</h6>
                    </div>
 
                </div>
            </div>
         
             <div className="file-field input-field" style={{margin:"10px"}}>
-            <div className="btn #64b5f6 blue darken-1">
+            <div className="btn #64b5f6 black darken-1">
                 <span>Update pic</span>
                 <input type="file" onChange={(e)=>updatePhoto(e.target.files[0])} />
             </div>

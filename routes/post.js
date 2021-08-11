@@ -139,5 +139,24 @@ router.delete('/deletepost/:postId',requireLogin,(req,res)=>{
         }
     })
 })
-
+router.delete('/deletecomment/:id/:commentId',requireLogin,(req,res)=>{
+    const comment={ _id:req.params.commentId}
+    Post.findByIdAndUpdate(req.params.id,
+        {
+            $pull:{comments:comment},
+        },
+        {
+            new:true
+        })
+    .populate("postedBy","_id name pic")
+    .populate("comments.postedBy","_id name")
+    .exec((err,result)=>{
+       if(err || !result)
+       {
+           return res.status(422).json({error:err})
+       }else{
+           res.json({result})
+       }
+    })
+})
 module.exports = router

@@ -95,7 +95,27 @@ const Home  = ()=>{
               console.log(err)
           })
     }
-
+    const deleteComment = (postId, commentId) => {
+        fetch(`/posts/${postId}/comments/${commentId}`, {
+          method: "delete",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("jwt")
+          }
+        }).then(res => res.json())
+        .then(result => {
+          const newData = data.map(item => {
+            if (item._id == result._id) {
+              return result
+            }
+            else {
+              return item
+            }
+          })
+          setData(newData)
+          M.toast({html: "Comment Deleted Successfully", classes: "#43a047 green darken-1"})
+        })
+      }
     const deletePost = (postid)=>{
         fetch(`/deletepost/${postid}`,{
             method:"delete",
@@ -118,14 +138,14 @@ const Home  = ()=>{
                data.map(item=>{
                    return(
                        
-                       <div className="card home-card" key={item._id}>
+                       <div className="card home-card black darken-1" key={item._id}>
                        <div>
                        <div style={{float: "left", padding: "10px"}}>
-                     <Link to={item.postedBy._id == state._id ? "/profile" : "/profile/"+item.postedBy._id} >
+                     <Link to={item.postedBy._id == state._id ? "/profile" : "/profile/"+item.postedBy._id} style={{color:"black"}} >
                      <img src = {item.postedBy.pic} style={{width: "30px", height: "30px", borderRadius: "50%"}} />
                      </Link>
                    </div>
-                   <h5 style={{padding:"5px",fontWeight:500}}><Link to={item.postedBy._id !== state._id?"/profile/"+item.postedBy._id :"/profile"  }>{item.postedBy.name}</Link>
+                   <h5 style={{padding:"5px",fontWeight:500,color:"white"}}><Link to={item.postedBy._id !== state._id?"/profile/"+item.postedBy._id :"/profile"  }>{item.postedBy.name}</Link>
                              {item.postedBy._id == state._id 
                             && <i className="material-icons" style={{
                                 float:"right"
@@ -143,31 +163,40 @@ const Home  = ()=>{
                             <i className="material-icons" style={{color:"red"}}>favorite</i>
                             {item.likes.includes(state._id)
                             ? 
-                            <i className="material-icons" style={{color:"DodgerBlue"}}
+                            <i className="material-icons" style={{color:"white"}}
                                     onClick={()=>{unlikePost(item._id)}}
                               >thumb_up</i>
                             : 
-                            <i className="material-icons"
+                            <i className="material-icons" style={{color:"white"}}
                             onClick={()=>{likePost(item._id)}}
                             >thumb_up_off_alt</i>
                             }
                             
                            
-                                <h6>{item.likes.length} likes</h6>
-                                <h6>{item.title}</h6>
-                                <p>{item.body}</p>
+                                <h6 style={{color:'white'}}>{item.likes.length} likes</h6>
+                                <h6 style={{color:'white'}}>{item.title}</h6>
+                                <p style={{color:'white'}}>{item.body}</p>
                                 {
                                     item.comments.map(record=>{
                                         return(
-                                        <h6 key={record._id}><span style={{fontWeight:"500"}}>{record.postedBy.name}</span> {record.text}</h6>
+                                        <h6 key={record._id}><span style={{fontWeight:"500",color:'white'}}>{record.postedBy.name}</span><span style={{color:'white'}} >{record.text}</span> 
+                                                        {item.postedBy._id == state._id 
+                                            && <i className="material-icons" style={{
+                                                float:"right"
+                                            }} 
+                                            onClick={()=>deleteComment(item._id)}
+                                            >delete</i>
+
+                            }
+                                        </h6>
                                         )
                                     })
                                 }
                                 <form onSubmit={(e)=>{
                                     e.preventDefault()
                                     makeComment(e.target[0].value,item._id)
-                                }}>
-                                  <input type="text" placeholder="add a comment" />  
+                                }} >
+                                  <input style={{color:'white'}} type="text" placeholder="add a comment" />  
                                 </form>
                                 
                             </div>

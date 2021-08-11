@@ -94,17 +94,17 @@ const Profile  = ()=>{
                    />
                </div>
                <div>
-                   <h4>{userProfile.user.name}</h4>
-                   <h5>{userProfile.user.email}</h5>
+                   <h4 style={{color:'white'}} >{userProfile.user.name}</h4>
+                   <h5 style={{color:'white'}}>{userProfile.user.email}</h5>
                    <div style={{display:"flex",justifyContent:"space-between",width:"108%"}}>
-                       <h6>{userProfile.posts.length} posts</h6>
-                       <h6>{userProfile.user.followers.length} followers</h6>
-                       <h6>{userProfile.user.following.length} following</h6>
+                       <h6 style={{color:'white'}}>{userProfile.posts.length} posts</h6>
+                       <h6 style={{color:'white'}}>{userProfile.user.followers.length} followers</h6>
+                       <h6 style={{color:'white'}}>{userProfile.user.following.length} following</h6>
                    </div>
                    {showfollow?
                    <button style={{
                        margin:"10px"
-                   }} className="btn waves-effect waves-light #64b5f6 blue darken-1"
+                   }} className="btn waves-effect waves-light #64b5f6 black darken-1"
                     onClick={()=>followUser()}
                     >
                         Follow
@@ -114,7 +114,7 @@ const Profile  = ()=>{
                     style={{
                         margin:"10px"
                     }}
-                    className="btn waves-effect waves-light #64b5f6 blue darken-1"
+                    className="btn waves-effect waves-light #64b5f6 black darken-1"
                     onClick={()=>unfollowUser()}
                     >
                         UnFollow
@@ -140,7 +140,7 @@ const Profile  = ()=>{
        </div>
        
        
-       : <h2>loading...!</h2>}
+       : <h2 style={{color:'white'}}>loading...!</h2>}
        
        </>
    )

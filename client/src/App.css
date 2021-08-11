@@ -1,13 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 a{
-  color: black !important;
+  color: black;
 }
 
 .brand-logo,h2{
   font-family: 'Pacifico', cursive;
 }
-
+a,h5{
+  color: white;
+}
+.home-card,.auth-card{
+  box-shadow: 0 15px 35px #fcd62fbb;
+}
+.home-card:hover{
+  box-shadow: none;
+  transform: scale(0.98) translateY(5px);
+}
 .mycard{
   margin-top: 30px;
 }
@@ -17,7 +26,10 @@ a{
   max-width: 400px;
   margin: 10px auto;
 }
-
+.btn:hover{
+  box-shadow: none;
+  transform: scale(0.98) translateY(5px);
+}
 .input-field input[type=text]:focus {
   border-bottom: 1px solid rgb(8, 93, 252) !important;
   box-shadow: 0 1px 0 0 rgb(8, 93, 252)  !important;

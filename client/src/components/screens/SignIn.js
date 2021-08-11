@@ -41,7 +41,7 @@ const SignIn  = ()=>{
    return (
       <div className="mycard">
           <div className="card auth-card input-field">
-          <img src="/dream.png" width="100px"></img>
+          <img src="/dream2.png" width="100px"></img>
             <h2>Dream Mates</h2>
             <input
             type="text"
@@ -55,16 +55,16 @@ const SignIn  = ()=>{
             value={password}
             onChange={(e)=>setPasword(e.target.value)}
             />
-            <button className="btn waves-effect waves-light #64b5f6 blue darken-1"
+            <button className="btn waves-effect waves-light #64b5f6 black darken-1"
             onClick={()=>PostData()}
             >
                 Login
             </button>
             <h5>
-                <Link to="/signup">Dont have an account ?</Link>
+                <Link to="/signup" style={{color:'black'}}>Dont have an account ?</Link>
             </h5>
             <h6>
-                <Link to="/reset">Forgot password ?</Link>
+                <Link to="/reset" style={{color:'black'}}>Forgot password ?</Link>
             </h6>
     
         </div>

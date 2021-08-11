@@ -34,8 +34,8 @@ const NavBar = () => {
     if (state) {
       return [
         <li key="1"><i onClick={() => M.Sidenav.getInstance(sideNav.current).close()}
-        data-target="modal1" className = "material-icons modal-trigger" style={{color: "black", cursor:"pointer"}}>search</i></li>,
-        <li key="2"><Link to="/profile" onClick={() => M.Sidenav.getInstance(sideNav.current).close()}>Profile</Link></li>,
+        data-target="modal1" className = "material-icons modal-trigger" style={{color: "white", cursor:"pointer"}}>search</i></li>,
+        <li key="2"><Link to="/profile" onClick={() => M.Sidenav.getInstance(sideNav.current).close()} >Profile</Link></li>,
         <li key="3"><Link to="/create" onClick={() => M.Sidenav.getInstance(sideNav.current).close()}>Add Post</Link ></li>,
         <li key="4"><Link to="/myfollowingpost" onClick={() => M.Sidenav.getInstance(sideNav.current).close()}>My feed</Link ></li>,
         <li key="5">
@@ -63,8 +63,8 @@ const NavBar = () => {
     <div>
     <div className="navbar-fixed">
     <nav>
-    <div className="nav-wrapper white">
-      <Link to= {state ? "/" : "/signin"} className="brand-logo myfont ">Dream Mates</Link >
+    <div className="nav-wrapper black">
+      <Link to= {state ? "/" : "/signin"} className="brand-logo myfont " style={{paddingLeft:"15px"}}>Dream Mates</Link >
       <Link to ={""} className="sidenav-trigger" data-target="slide-out">
 			<i className="material-icons">menu</i>
 		  </Link>
