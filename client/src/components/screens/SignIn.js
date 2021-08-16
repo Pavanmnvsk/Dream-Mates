@@ -9,7 +9,7 @@ const SignIn  = ()=>{
     const [email,setEmail] = useState("")
     const PostData = ()=>{
         if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){
-            M.toast({html: "invalid email",classes:"#c62828 red darken-3"})
+            M.toast({html: "Invalid email",classes:"#c62828 red darken-3"})
             return
         }
         fetch("/signin",{
@@ -31,7 +31,7 @@ const SignIn  = ()=>{
                localStorage.setItem("jwt",data.token)
                localStorage.setItem("user",JSON.stringify(data.user))
                dispatch({type:"USER",payload:data.user})
-               M.toast({html:"signedin success",classes:"#43a047 green darken-1"})
+               M.toast({html:"Signedin Success",classes:"#43a047 green darken-1"})
                history.push('/')
            }
         }).catch(err=>{

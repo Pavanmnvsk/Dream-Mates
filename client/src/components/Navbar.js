@@ -64,7 +64,7 @@ const NavBar = () => {
     <div className="navbar-fixed">
     <nav>
     <div className="nav-wrapper black">
-      <Link to= {state ? "/" : "/signin"} className="brand-logo myfont " style={{paddingLeft:"15px"}}>Dream Mates</Link >
+      <Link to= {state ? "/" : "/signin"} className="brand-logo myfont glow" style={{paddingLeft:"15px"}}>Dream Mates</Link >
       <Link to ={""} className="sidenav-trigger" data-target="slide-out">
 			<i className="material-icons">menu</i>
 		  </Link>

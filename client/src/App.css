@@ -31,12 +31,12 @@ a,h5{
   transform: scale(0.98) translateY(5px);
 }
 .input-field input[type=text]:focus {
-  border-bottom: 1px solid rgb(8, 93, 252) !important;
-  box-shadow: 0 1px 0 0 rgb(8, 93, 252)  !important;
+  border-bottom: 1px solid rgb(252, 207, 8) !important;
+  box-shadow: 0 1px 0 0 rgb(252, 207, 8)  !important;
 }
 .input-field input[type=password]:focus {
-  border-bottom: 1px solid rgb(8, 93, 252) !important;
-  box-shadow: 0 1px 0 0 rgb(8, 93, 252)  !important;
+  border-bottom: 1px solid rgb(252, 207, 8) !important;
+  box-shadow: 0 1px 0 0 rgb(252, 207, 8)  !important;
 }
 
 .gallery{
@@ -44,7 +44,28 @@ a,h5{
   flex-wrap: wrap;
   justify-content: space-around;
 }
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  animation: glow 1.2s linear infinite;  
+  animation-play-state: paused; 
+}
 
+.glow:hover{
+  animation-play-state: running;              
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 30px #3f3f3e, 0 0 40px #3f3f3e, 0 0 50px #3f3f3e, 0 0 60px #3f3f3e, 0 0 70px #3f3f3e, 0 0 80px #3f3f3e;
+  }
+  
+  to {
+   
+    text-shadow: 0 0 20px #fff, 0 0 20px #fff, 0 0 30px #ffc507, 0 0 40px #ffc507, 0 0 50px #ffc507, 0 0 60px #ffc507, 0 0 70px #ffc507;
+  }
+}
 .item{
   width: 30%;
 }
